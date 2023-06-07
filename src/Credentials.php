@@ -240,7 +240,7 @@ class Credentials
             $json = json_decode($response->getBody(), true);
 
         } catch (\Exception $e) {
-            //log something
+            // log something
             throw $e;
         }
 
