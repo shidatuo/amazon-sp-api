@@ -114,28 +114,33 @@ class Credentials
         return $rdt;
     }
 
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
     private function getLWAToken()
     {
-
-        $knownToken = $this->loadTokenFromStorage('lwa_access_token');
-        if (!is_null($knownToken)) {
-            return $knownToken;
-        }
-
-        $client = $this->createHttpClient([
-            'base_uri' => 'https://api.amazon.com'
-        ]);
-
         try {
+            $knownToken = $this->loadTokenFromStorage('lwa_access_token');
+            if (!is_null($knownToken))
+                return $knownToken;
+
+            $client = $this->createHttpClient([
+                'base_uri' => 'https://api.amazon.com'
+            ]);
+
             $requestOptions = [
                 'form_params' => [
-                    'grant_type' => 'refresh_token',
+                    'grant_type'    => 'refresh_token',
                     'refresh_token' => $this->config['refresh_token'],
-                    'client_id' => $this->config['client_id'],
+                    'client_id'     => $this->config['client_id'],
                     'client_secret' => $this->config['client_secret']
                 ]
             ];
+
+            // 发起请求
             $response = $client->post('/auth/o2/token', $requestOptions);
+
         } catch (\Exception $e) {
             //log something
             throw $e;
@@ -147,7 +152,6 @@ class Credentials
         ]);
 
         return $json['access_token'];
-
     }
 
     /**
