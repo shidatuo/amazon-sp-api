@@ -55,7 +55,7 @@ class ListingsRestrictions extends Client
         return $this->sendAsync('/listings/2021-08-01/restrictions',
             [
                 'method' => 'GET',
-                'query' => $queryParams,
+                'query'  => $queryParams,
             ]
         );
     }
