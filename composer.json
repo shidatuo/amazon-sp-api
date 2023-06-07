@@ -1,5 +1,5 @@
 {
-  "name": "shidatuo-amazon/sp-api",
+  "name": "shidatuo/amazon-sp-api",
   "description": "亚马逊sp-api",
   "type": "library",
   "autoload": {
