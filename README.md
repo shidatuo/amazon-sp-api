@@ -12,7 +12,7 @@ The purpose of this package is to have an easy way of getting started with the A
 
 # Requirements
 
-- PHP >= 7.3
+- PHP >= 7.2
 - cURL Extension
 - JSON Extension
 - MBString Extension
@@ -22,7 +22,7 @@ The purpose of this package is to have an easy way of getting started with the A
 Just require this package via composer:
 
 ```
-composer require clousale/amazon-sp-api-php
+composer require shidatuo/amazon-sp-api
 ```
 
 # Detailed Documentation
