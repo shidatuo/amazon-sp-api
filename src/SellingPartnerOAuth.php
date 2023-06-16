@@ -12,7 +12,7 @@ class SellingPartnerOAuth
      * @param $refreshToken
      * @param $clientId
      * @param $clientSecret
-     *
+     * @return string|null
      * @throws GuzzleException
      */
     public static function getAccessTokenFromRefreshToken($refreshToken, $clientId, $clientSecret): ?string
@@ -41,6 +41,11 @@ class SellingPartnerOAuth
     }
 
     /**
+     * @param string $lwaAuthorizationCode
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param string $redirectUri
+     * @return string|null
      * @throws GuzzleException
      * @throws SellingPartnerOAuthException
      */
