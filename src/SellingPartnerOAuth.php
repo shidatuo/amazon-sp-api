@@ -19,9 +19,9 @@ class SellingPartnerOAuth
     {
         $client = new Client();
         $params = [
-            'grant_type' => 'refresh_token',
+            'grant_type'    => 'refresh_token',
             'refresh_token' => $refreshToken,
-            'client_id' => $clientId,
+            'client_id'     => $clientId,
             'client_secret' => $clientSecret,
         ];
         $options = array_merge([
@@ -52,11 +52,11 @@ class SellingPartnerOAuth
     ): ?string {
         $client = new Client();
         $params = [
-            'grant_type' => 'authorization_code',
-            'client_id' => $clientId,
+            'grant_type'    => 'authorization_code',
+            'client_id'     => $clientId,
             'client_secret' => $clientSecret,
-            'code' => $lwaAuthorizationCode,
-            'redirect_uri' => $redirectUri,
+            'code'          => $lwaAuthorizationCode,
+            'redirect_uri'  => $redirectUri,
         ];
         $options = array_merge([
             RequestOptions::HEADERS => ['Accept' => 'application/json'],
