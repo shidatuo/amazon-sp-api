@@ -48,7 +48,7 @@ class CreateFeedDocumentResult implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'feed_document_id'   => 'string',
         'url'                => 'string',
-        'encryption_details' => '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedDocumentEncryptionDetails'
+        'encryption_details' => '\Amazon\SpApi\Models\Feeds\FeedDocumentEncryptionDetails'
     ];
 
     /**
@@ -261,7 +261,7 @@ class CreateFeedDocumentResult implements ModelInterface, ArrayAccess
     /**
      * Gets encryption_details.
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedDocumentEncryptionDetails
+     * @return \Amazon\SpApi\Models\Feeds\FeedDocumentEncryptionDetails
      */
     public function getEncryptionDetails()
     {
@@ -271,7 +271,7 @@ class CreateFeedDocumentResult implements ModelInterface, ArrayAccess
     /**
      * Sets encryption_details.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedDocumentEncryptionDetails $encryption_details encryption_details
+     * @param \Amazon\SpApi\Models\Feeds\FeedDocumentEncryptionDetails $encryption_details encryption_details
      *
      * @return $this
      */
