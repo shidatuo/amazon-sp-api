@@ -78,7 +78,6 @@ class SellingPartnerOAuth
         if (isset($bodyAsJson['error_description'])) {
             throw new SellingPartnerOAuthException($bodyAsJson['error_description'], $bodyAsJson['error']);
         }
-
         return $bodyAsJson['refresh_token'];
     }
 }
