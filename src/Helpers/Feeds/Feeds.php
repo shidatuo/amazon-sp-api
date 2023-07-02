@@ -39,11 +39,10 @@ class Feeder
         $fileResourceType = gettype($feedContentFilePath);
 
         // resource or string ? make it to a string
-        if ($fileResourceType == 'resource') {
+        if ($fileResourceType == 'resource')
             $file_content = stream_get_contents($feedContentFilePath);
-        } else {
+        else
             $file_content = file_get_contents($feedContentFilePath);
-        }
 
         // utf8 !
         $file_content = utf8_encode($file_content);
@@ -105,7 +104,7 @@ class Feeder
             $feed_processing_report_content = file_get_contents($feedDownloadUrl);
         }
 
-        if(isset($payload['compressionAlgorithm']) && $payload['compressionAlgorithm']=='GZIP') {
+        if(isset($payload['compressionAlgorithm']) && $payload['compressionAlgorithm'] == 'GZIP') {
             $feed_processing_report_content = gzdecode($feed_processing_report_content);
         }
         // check if report content is json encoded or not
@@ -116,7 +115,7 @@ class Feeder
             $xml = simplexml_load_string($feed_processing_report_content);
             $json = json_encode($xml);
         }
-        return json_decode($json, TRUE);
+        return json_decode($json,true);
     }
 
     /**
