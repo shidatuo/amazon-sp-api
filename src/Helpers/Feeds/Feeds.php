@@ -108,7 +108,6 @@ class Feeder
         if(isset($payload['compressionAlgorithm']) && $payload['compressionAlgorithm']=='GZIP') {
             $feed_processing_report_content = gzdecode($feed_processing_report_content);
         }
-
         // check if report content is json encoded or not
         if ($this->isJson($feed_processing_report_content) == true) {
             $json = $feed_processing_report_content;
