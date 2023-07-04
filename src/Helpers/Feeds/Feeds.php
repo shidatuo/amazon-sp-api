@@ -30,7 +30,6 @@ class Feeder
         if (isset($payload['encryptionDetails'])) {
             $key = $payload['encryptionDetails']['key'];
             $initializationVector = $payload['encryptionDetails']['initializationVector'];
-
             // base64 decode before using in encryption
             $initializationVector = base64_decode($initializationVector, true);
             $key = base64_decode($key, true);
