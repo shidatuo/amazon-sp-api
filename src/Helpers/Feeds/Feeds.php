@@ -118,7 +118,6 @@ class Feeder
             $xml = simplexml_load_string($feed_processing_report_content);
             $json = json_encode($xml);
         }
-
         return json_decode($json, TRUE);
     }
 
