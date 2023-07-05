@@ -22,9 +22,9 @@ class Feeder
      */
     public function uploadFeedDocument($payload, $contentType, $feedContentFilePath)
     {
-        $key = null;
+        $key                  = null;
         $initializationVector = null;
-        $feedUploadUrl = $payload['url'];
+        $feedUploadUrl        = $payload['url'];
 
         // check if encryption in required
         if (isset($payload['encryptionDetails'])) {
