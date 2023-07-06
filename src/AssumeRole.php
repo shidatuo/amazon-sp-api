@@ -5,48 +5,73 @@ namespace Amazon\SpApi;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Query;
 
+/**
+ * Class AssumeRole
+ * @package Amazon\SpApi
+ */
 class AssumeRole
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     private $accessKeyId;
-    /** @var string */
+
+    /**
+     * @var string
+     */
     private $secretAccessKey;
-    /** @var string */
+
+    /**
+     * @var string
+     */
     private $sessionToken;
 
     /**
      * AssumeRole constructor.
+     * @param string $accessKeyId
+     * @param string $secretAccessKey
+     * @param string $sessionToken
      */
     public function __construct(string $accessKeyId, string $secretAccessKey, string $sessionToken)
     {
-        $this->accessKeyId = $accessKeyId;
+        $this->accessKeyId     = $accessKeyId;
         $this->secretAccessKey = $secretAccessKey;
-        $this->sessionToken = $sessionToken;
+        $this->sessionToken    = $sessionToken;
     }
 
+    /**
+     * @return string
+     */
     public function getAccessKeyId(): string
     {
         return $this->accessKeyId;
     }
 
+    /**
+     * @return string
+     */
     public function getSecretAccessKey(): string
     {
         return $this->secretAccessKey;
     }
 
+    /**
+     * @return string
+     */
     public function getSessionToken(): string
     {
         return $this->sessionToken;
     }
 
     /**
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     *
-     * @author crazyfactory https://github.com/crazyfactory
-     *
-     * Special thanks go to github user crazyfactory / z3niths who made a better implementation of the signature method
-     *
-     * Thanks to
+     * @param string $region
+     * @param string $accessKey
+     * @param string $secretKey
+     * @param string $roleArn
+     * @param int $durationSeconds
+     * @return AssumeRole
+     * @throws \Exception
+     * @description Special thanks go to github user crazyfactory / z3niths who made a better implementation of the signature method
      */
     public static function assume(string $region, string $accessKey, string $secretKey, string $roleArn, int $durationSeconds = 3600): AssumeRole
     {
@@ -55,11 +80,11 @@ class AssumeRole
                 'accept' => 'application/json',
             ],
             'form_params' => [
-                'Action' => 'AssumeRole',
+                'Action'          => 'AssumeRole',
                 'DurationSeconds' => $durationSeconds,
-                'RoleArn' => $roleArn,
+                'RoleArn'         => $roleArn,
                 'RoleSessionName' => 'amazon-sp-api-php',
-                'Version' => '2011-06-15',
+                'Version'         => '2011-06-15',
             ],
         ];
 
@@ -96,9 +121,8 @@ class AssumeRole
             throw $e;
         }
 
-        $client = new Client([
-            'base_uri' => 'https://'.$host,
-        ]);
+        // 实例化客户端
+        $client = new Client(['base_uri' => 'https://' . $host]);
 
         $requestOptions['headers'] = array_merge($requestOptions['headers'], $signedHeader);
 
@@ -107,19 +131,16 @@ class AssumeRole
 
             $json = json_decode($response->getBody(), true);
             $credentials = $json['AssumeRoleResponse']['AssumeRoleResult']['Credentials'] ?? null;
+
 //            $tokens = [
 //                'access_key' => $credentials['AccessKeyId'],
 //                'secret_key' => $credentials['SecretAccessKey'],
 //                'session_token' => $credentials['SessionToken']
 //            ];
-
-            return new AssumeRole(
-                $credentials['AccessKeyId'],
-                $credentials['SecretAccessKey'],
-                $credentials['SessionToken']
-            );
-
 //            return $tokens;
+
+            return new AssumeRole($credentials['AccessKeyId'],$credentials['SecretAccessKey'],$credentials['SessionToken']);
+
         } catch (\Exception $e) {
             echo "Error (Signing process) : {$e->getMessage()}";
             throw $e;
