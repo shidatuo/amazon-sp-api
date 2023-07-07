@@ -57,6 +57,7 @@ class SellingPartnerOAuth
         string $clientSecret,
         string $redirectUri
     ): ?string {
+
         $client = new Client();
         $params = [
             'grant_type'    => 'authorization_code',
