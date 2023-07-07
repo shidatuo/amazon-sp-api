@@ -32,12 +32,14 @@ class SellingPartnerOAuth
             ],
         ], $params ? [RequestOptions::FORM_PARAMS => $params] : []);
 
+        // 发起请求
         $response = $client->request('POST', 'https://api.amazon.com/auth/o2/token', $options);
 
+        // 获取返回值
         $body = $response->getBody()->getContents();
-        $bodyAsJson = json_decode($body, true);
 
-        return $bodyAsJson['access_token'];
+        // 转化成数组
+        return json_decode($body, true);
     }
 
     /**
@@ -71,13 +73,13 @@ class SellingPartnerOAuth
             ],
         ], $params ? [RequestOptions::FORM_PARAMS => $params] : []);
 
+        // 请求接口
         $response = $client->request('POST', 'https://api.amazon.com/auth/o2/token', $options);
 
+        // 获取返回值
         $body = $response->getBody()->getContents();
-        $bodyAsJson = json_decode($body, true);
-        if (isset($bodyAsJson['error_description'])) {
-            throw new SellingPartnerOAuthException($bodyAsJson['error_description'], $bodyAsJson['error']);
-        }
-        return $bodyAsJson['refresh_token'];
+
+        // 转化成数组
+        return json_decode($body, true);
     }
 }
