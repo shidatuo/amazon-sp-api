@@ -80,6 +80,7 @@ class SellingPartnerOAuth
         // 获取返回值
         $body = $response->getBody()->getContents();
 
+
         // 转化成数组
         return json_decode($body, true);
     }
