@@ -12,10 +12,9 @@ class SellingPartnerOAuth
      * @param $refreshToken
      * @param $clientId
      * @param $clientSecret
-     * @return string|null
-     * @throws GuzzleException
+     * @return array|null
      */
-    public static function getAccessTokenFromRefreshToken($refreshToken, $clientId, $clientSecret): ?string
+    public static function getAccessTokenFromRefreshToken($refreshToken, $clientId, $clientSecret): ?array
     {
         // 实例化客户端
         $client = new Client();
@@ -48,16 +47,14 @@ class SellingPartnerOAuth
      * @param string $clientId
      * @param string $clientSecret
      * @param string $redirectUri
-     * @return string|null
-     * @throws GuzzleException
-     * @throws SellingPartnerOAuthException
+     * @return array|null
      */
     public static function getRefreshTokenFromLwaAuthorizationCode(
         string $lwaAuthorizationCode,
         string $clientId,
         string $clientSecret,
         string $redirectUri
-    ): ?string {
+    ): ?array {
         // 实例化客户端
         $client = new Client();
         $params = [
