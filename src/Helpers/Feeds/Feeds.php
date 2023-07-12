@@ -7,10 +7,10 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 
 /**
- * Class Feeder
+ * Class Feeds
  * @package Amazon\SpApi\Helpers\Feeds
  */
-class Feeder
+class Feeds
 {
     /**
      * @param $payload : Response from createFeedDocument Function. e.g.: response['payload']
