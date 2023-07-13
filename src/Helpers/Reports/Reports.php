@@ -56,6 +56,8 @@ class Reports
 
         // Process each line (starting from the second line)
         $count = count($lines);
+
+        // 循环组合数据
         for ($i = 1; $i < $count; $i++) {
             // Split the line into individual values
             $values = explode("\t", $lines[$i]);
