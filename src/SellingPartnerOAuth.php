@@ -68,7 +68,7 @@ class SellingPartnerOAuth
             RequestOptions::HEADERS => ['Accept' => 'application/json'],
             RequestOptions::HTTP_ERRORS => false,
             'curl' => [
-                CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2,
+                CURLOPT_SSLVERSION => 6,
             ],
         ], $params ? [RequestOptions::FORM_PARAMS => $params] : []);
 
