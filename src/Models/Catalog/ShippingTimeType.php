@@ -275,6 +275,7 @@ class ShippingTimeType extends Categories implements ModelInterface, ArrayAccess
                 JSON_PRETTY_PRINT
             );
         }
+
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
