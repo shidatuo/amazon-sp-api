@@ -95,6 +95,9 @@ trait SellingPartnerApiRequest
     }
 
     /**
+     * @param Request $request
+     * @param string $returnType
+     * @return array
      * @throws ApiException
      */
     private function sendRequest(Request $request, string $returnType): array
@@ -121,11 +124,14 @@ trait SellingPartnerApiRequest
                     $content = json_decode($content);
                 }
             }
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders(),
-            ];
+            // 返回数组
+            if($returnType == 'array') {
+                $result = $content;
+            } else {
+                $result = ObjectSerializer::deserialize($content, $returnType, []);
+            }
+            return [$result, $response->getStatusCode(), $response->getHeaders()];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 503:
