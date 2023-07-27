@@ -29,7 +29,7 @@ use Amazon\SpApi\ObjectSerializer;
  *
  * @author   Stefan Neuhaus / ClouSale
  */
-class CatalogV20201201Api
+class CatalogV20220401Api
 {
     use SellingPartnerApiRequest;
 
