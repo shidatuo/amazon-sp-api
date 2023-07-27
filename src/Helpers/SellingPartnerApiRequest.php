@@ -126,7 +126,8 @@ trait SellingPartnerApiRequest
             }
             // 返回数组
             if($returnType == 'array') {
-                $result = $content;
+                $result = json_encode($content);
+                $result = json_decode($result,true);
             } else {
                 $result = ObjectSerializer::deserialize($content, $returnType, []);
             }
