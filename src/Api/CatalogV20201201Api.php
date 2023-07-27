@@ -64,6 +64,23 @@ class CatalogV20201201Api
     }
 
     /**
+     * Operation getCatalogItem.
+     *
+     * @param $marketplace_id A marketplace identifier. Specifies the marketplace for the item. (required)
+     * @param $asin           The Amazon Standard Identification Number (ASIN) of the item. (required)
+     * @param null $includedData
+     * @param null $locale
+     * @return mixed
+     * @throws ApiException
+     */
+    public function getCatalogItem($marketplace_id, $asin, $includedData = null, $locale = null)
+    {
+        list($response) = $this->getCatalogItemWithHttpInfo($marketplace_id, $asin, $includedData, $locale);
+
+        return $response;
+    }
+
+    /**
      * Operation getCatalogItemWithHttpInfo.
      *
      * @param $marketplace_id A marketplace identifier. Specifies the marketplace for the item. (required)
