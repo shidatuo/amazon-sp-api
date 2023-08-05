@@ -10,7 +10,7 @@
  *
  * The Selling Partner API for Feeds lets you upload data to Amazon on behalf of a selling partner.
  *
- * OpenAPI spec version: 2020-09-04
+ * OpenAPI spec version: 2021-06-30
  */
 
 namespace Amazon\SpApi\Api;
@@ -99,7 +99,7 @@ class FeedsApi
         $returnType = '\Amazon\SpApi\Models\Feeds\CancelFeedResponse';
         $request = $this->cancelFeedRequest($feed_id);
 
-        return $this->sendRequest($request, CancelFeedResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -134,7 +134,7 @@ class FeedsApi
     {
         $request = $this->cancelFeedRequest($feed_id);
 
-        return $this->sendRequestAsync($request, CancelFeedResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -153,7 +153,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $feed_id when calling cancelFeed');
         }
 
-        $resourcePath = '/feeds/2020-09-04/feeds/{feedId}';
+        $resourcePath = '/feeds/2021-06-30/feeds/{feedId}';
         $formParams   = [];
         $queryParams  = [];
         $headerParams = [];
@@ -204,7 +204,7 @@ class FeedsApi
         $returnType = '\Amazon\SpApi\Models\Feeds\CreateFeedResponse';
         $request = $this->createFeedRequest($body);
 
-        return $this->sendRequest($request, CreateFeedResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -239,7 +239,7 @@ class FeedsApi
     {
         $request = $this->createFeedRequest($body);
 
-        return $this->sendRequestAsync($request, CreateFeedResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -258,7 +258,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createFeed');
         }
 
-        $resourcePath = '/feeds/2020-09-04/feeds';
+        $resourcePath = '/feeds/2021-06-30/feeds';
         $formParams   = [];
         $queryParams  = [];
         $headerParams = [];
@@ -299,7 +299,7 @@ class FeedsApi
     {
         $request = $this->createFeedDocumentRequest($body);
 
-        return $this->sendRequest($request, CreateFeedDocumentResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -334,7 +334,7 @@ class FeedsApi
     {
         $request = $this->createFeedDocumentRequest($body);
 
-        return $this->sendRequestAsync($request, CreateFeedDocumentResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -353,7 +353,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createFeedDocument');
         }
 
-        $resourcePath = '/feeds/2020-09-04/documents';
+        $resourcePath = '/feeds/2021-06-30/documents';
         $formParams   = [];
         $queryParams  = [];
         $headerParams = [];
@@ -395,7 +395,7 @@ class FeedsApi
         $returnType = '\Amazon\SpApi\Models\Feeds\GetFeedResponse';
         $request = $this->getFeedRequest($feed_id);
 
-        return $this->sendRequest($request, GetFeedResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -431,7 +431,7 @@ class FeedsApi
         $returnType = '\Amazon\SpApi\Models\Feeds\GetFeedResponse';
         $request = $this->getFeedRequest($feed_id);
 
-        return $this->sendRequestAsync($request, GetFeedResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -450,7 +450,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $feed_id when calling getFeed');
         }
 
-        $resourcePath = '/feeds/2020-09-04/feeds/{feedId}';
+        $resourcePath = '/feeds/2021-06-30/feeds/{feedId}';
         $formParams   = [];
         $queryParams  = [];
         $headerParams = [];
@@ -500,7 +500,7 @@ class FeedsApi
     {
         $request = $this->getFeedDocumentRequest($feed_document_id);
 
-        return $this->sendRequest($request, GetFeedDocumentResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -535,7 +535,7 @@ class FeedsApi
     {
         $request = $this->getFeedDocumentRequest($feed_document_id);
 
-        return $this->sendRequestAsync($request, GetFeedDocumentResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -554,7 +554,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $feed_document_id when calling getFeedDocument');
         }
 
-        $resourcePath = '/feeds/2020-09-04/documents/{feedDocumentId}';
+        $resourcePath = '/feeds/2021-06-30/documents/{feedDocumentId}';
         $formParams   = [];
         $queryParams  = [];
         $headerParams = [];
@@ -616,7 +616,7 @@ class FeedsApi
     {
         $request = $this->getFeedsRequest($feed_types, $marketplace_ids, $page_size, $processing_statuses, $created_since, $created_until, $next_token);
 
-        return $this->sendRequest($request, GetFeedsResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -664,7 +664,7 @@ class FeedsApi
         $returnType = '\Amazon\SpApi\Models\Feeds\GetFeedsResponse';
         $request = $this->getFeedsRequest($feed_types, $marketplace_ids, $page_size, $processing_statuses, $created_since, $created_until, $next_token);
 
-        return $this->sendRequestAsync($request, GetFeedsResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -684,7 +684,7 @@ class FeedsApi
      */
     protected function getFeedsRequest($feed_types = null, $marketplace_ids = null, $page_size = '10', $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
     {
-        $resourcePath = '/feeds/2020-09-04/feeds';
+        $resourcePath = '/feeds/2021-06-30/feeds';
         $formParams   = [];
         $queryParams  = [];
         $headerParams = [];

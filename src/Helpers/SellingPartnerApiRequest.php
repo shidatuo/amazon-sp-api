@@ -195,9 +195,15 @@ trait SellingPartnerApiRequest
                             $content = json_decode($content);
                         }
                     }
-
+                    // 返回数组
+                    if($returnType == 'array') {
+                        $result = json_encode($content);
+                        $result = json_decode($result,true);
+                    } else {
+                        $result = ObjectSerializer::deserialize($content, $returnType, []);
+                    }
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $result,
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
