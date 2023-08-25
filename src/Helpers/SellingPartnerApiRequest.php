@@ -139,7 +139,7 @@ trait SellingPartnerApiRequest
                 case 500:
                 case 429:
                 case 404:
-                case 403:
+//                case 403:
                 case 401:
                 case 400:
                 case 200:
@@ -149,6 +149,10 @@ trait SellingPartnerApiRequest
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+                    break;
+                case 403:
+                    // token 过期
+                    return [json_decode($e->getResponseBody(),true), $e->getCode(), $e->getResponseHeaders()];
                     break;
             }
             throw $e;
