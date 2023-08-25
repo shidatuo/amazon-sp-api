@@ -64,35 +64,35 @@ class ListingsItemsApi
     }
 
     /**
-     * Operation ListingsItemsApi.
-     *
-     * @param $marketplace_id A marketplace identifier. Specifies the marketplace for the item. (required)
-     * @param $asin           The Amazon Standard Identification Number (ASIN) of the item. (required)
-     * @param null $includedData
+     * @param $marketplace_id
+     * @param $sellerId
+     * @param $sku
      * @param null $locale
+     * @param null $includedData
      * @return mixed
      * @throws ApiException
+     * @description Operation ListingsItemsApi.
      */
-    public function getListingsItems($marketplace_id, $asin, $includedData = null, $locale = null)
+    public function getListingsItems($marketplace_id,$sellerId,$sku,$locale = null,$includedData = null)
     {
-        list($response) = $this->getListingsItemsWithHttpInfo($marketplace_id, $asin, $includedData, $locale);
+        list($response) = $this->getListingsItemsWithHttpInfo($marketplace_id,$sellerId,$sku,$locale,$includedData);
 
         return $response;
     }
 
     /**
-     * Operation getListingsItemsWithHttpInfo.
-     *
      * @param $marketplace_id A marketplace identifier. Specifies the marketplace for the item. (required)
-     * @param $asin           The Amazon Standard Identification Number (ASIN) of the item. (required)
-     * @param null $includedData
+     * @param $sellerId
+     * @param $sku
      * @param null $locale
+     * @param null $includedData
      * @return array
      * @throws ApiException
+     * @description Operation getListingsItemsWithHttpInfo.
      */
-    public function getListingsItemsWithHttpInfo($marketplace_id, $asin, $includedData = null, $locale = null)
+    public function getListingsItemsWithHttpInfo($marketplace_id,$sellerId,$sku,$locale = null,$includedData = null)
     {
-        $request = $this->getListingsItemsRequest($marketplace_id, $asin, $includedData, $locale);
+        $request = $this->getListingsItemsRequest($marketplace_id,$sellerId,$sku,$locale,$includedData);
 
         return $this->sendRequest($request, 'array');
     }
