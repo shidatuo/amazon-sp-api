@@ -137,7 +137,6 @@ trait SellingPartnerApiRequest
             switch ($e->getCode()) {
                 case 503:
                 case 500:
-                case 429:
                 case 404:
 //                case 403:
                 case 401:
@@ -152,6 +151,10 @@ trait SellingPartnerApiRequest
                     break;
                 case 403:
                     // token 过期
+                    return [json_decode($e->getResponseBody(),true), $e->getCode(), $e->getResponseHeaders()];
+                    break;
+                case 429:
+                    // 获取资源超出频控
                     return [json_decode($e->getResponseBody(),true), $e->getCode(), $e->getResponseHeaders()];
                     break;
             }
