@@ -151,11 +151,11 @@ trait SellingPartnerApiRequest
                     break;
                 case 403:
                     // token 过期
-                    return [json_decode($e->getResponseBody(),true), $e->getCode(), $e->getResponseHeaders()];
+                    return [['code'=>$e->getCode(),'data'=>json_decode($e->getResponseBody(),true)]];
                     break;
                 case 429:
                     // 获取资源超出频控
-                    return [json_decode($e->getResponseBody(),true), $e->getCode(), $e->getResponseHeaders()];
+                    return [['code'=>$e->getCode(),'data'=>json_decode($e->getResponseBody(),true)]];
                     break;
             }
             throw $e;
