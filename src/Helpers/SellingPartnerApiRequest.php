@@ -135,12 +135,6 @@ trait SellingPartnerApiRequest
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 503:
-                case 500:
-                case 404:
-//                case 403:
-                case 401:
-                case 400:
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -155,6 +149,26 @@ trait SellingPartnerApiRequest
                     break;
                 case 429:
                     // 获取资源超出频控
+                    return [['code'=>$e->getCode(),'data'=>json_decode($e->getResponseBody(),true)]];
+                    break;
+                case 503:
+                    //
+                    return [['code'=>$e->getCode(),'data'=>json_decode($e->getResponseBody(),true)]];
+                    break;
+                case 404:
+                    // 获取的数据不存在
+                    return [['code'=>$e->getCode(),'data'=>json_decode($e->getResponseBody(),true)]];
+                    break;
+                case 500:
+                    // 异常
+                    return [['code'=>$e->getCode(),'data'=>json_decode($e->getResponseBody(),true)]];
+                    break;
+                case 401:
+                    //
+                    return [['code'=>$e->getCode(),'data'=>json_decode($e->getResponseBody(),true)]];
+                    break;
+                case 400:
+                    //
                     return [['code'=>$e->getCode(),'data'=>json_decode($e->getResponseBody(),true)]];
                     break;
             }
