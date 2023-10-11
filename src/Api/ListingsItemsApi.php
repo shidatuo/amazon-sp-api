@@ -81,6 +81,104 @@ class ListingsItemsApi
     }
 
     /**
+     * @param $marketplace_id
+     * @param $sellerId
+     * @param $sku
+     * @return array|mixed
+     * @throws ApiException
+     * @author shidatuo
+     * @description Operation ListingsItemsApi.
+     */
+    public function deleteListingsItem($marketplace_id,$sellerId,$sku)
+    {
+        list($response) = $this->deleteListingsItemWithHttpInfo($marketplace_id,$sellerId,$sku);
+
+        return $response;
+    }
+
+    /**
+     * @param $marketplace_id
+     * @param $sellerId
+     * @param $sku
+     * @return array|array[]
+     * @throws ApiException
+     * @author shidatuo
+     * @description Delete Operation ListingsItemsApi.
+     */
+    public function deleteListingsItemWithHttpInfo($marketplace_id,$sellerId,$sku)
+    {
+        $request = $this->deleteListingsItemRequest($marketplace_id,$sellerId,$sku);
+
+        return $this->sendRequest($request, 'array');
+    }
+
+    /**
+     * @param $marketplace_id
+     * @param $sellerId
+     * @param $sku
+     * @return Request
+     * @author shidatuo
+     * @description Delete Operation ListingsItemsApi.
+     */
+    protected function deleteListingsItemRequest($marketplace_id,$sellerId,$sku)
+    {
+        // verify the required parameter 'marketplace_id' is set
+        if (null === $marketplace_id || (is_array($marketplace_id) && 0 === count($marketplace_id))) {
+            throw new InvalidArgumentException('Missing the required parameter $marketplace_id when calling getListingsItems');
+        }
+        // verify the required parameter 'sellerId' is set
+        if (null === $sellerId || (is_array($sellerId) && 0 === count($sellerId))) {
+            throw new InvalidArgumentException('Missing the required parameter $asin when calling getListingsItems');
+        }
+        // verify the required parameter 'sellerId' is set
+        if (null === $sku || (is_array($sku) && 0 === count($sku))) {
+            throw new InvalidArgumentException('Missing the required parameter $asin when calling getListingsItems');
+        }
+
+        $resourcePath = '/listings/2021-08-01/items/{sellerId}/{sku}';
+        $formParams   = [];
+        $queryParams  = [];
+        $headerParams = [];
+        $httpBody     = '';
+        $multipart    = false;
+
+        // query params
+        if (null !== $marketplace_id) {
+            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplace_id);
+        }
+
+        // query params
+        if (null !== $sellerId) {
+            $queryParams['sellerId'] = ObjectSerializer::toQueryValue($sellerId);
+        }
+
+        // query params
+        if (null !== $sku) {
+            $queryParams['sku'] = ObjectSerializer::toQueryValue($sku);
+        }
+
+        // path params
+        if (null !== $sellerId) {
+            $resourcePath = str_replace(
+                '{'.'sellerId'.'}',
+                ObjectSerializer::toPathValue($sellerId),
+                $resourcePath
+            );
+        }
+
+        // path params
+        if (null !== $sku) {
+            $resourcePath = str_replace(
+                '{'.'sku'.'}',
+                ObjectSerializer::toPathValue($sku),
+                $resourcePath
+            );
+        }
+
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'DELETE', $httpBody);
+    }
+
+    /**
      * @param $marketplace_id A marketplace identifier. Specifies the marketplace for the item. (required)
      * @param $sellerId
      * @param $sku
