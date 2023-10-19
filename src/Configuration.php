@@ -355,7 +355,7 @@ class Configuration
      */
     public static function toDebugReport()
     {
-        $report = 'PHP SDK (ClouSale\AmazonSellingPartnerAPI) Debug Report:'.PHP_EOL;
+        $report = 'PHP SDK (Amazon\SpApi) Debug Report:'.PHP_EOL;
         $report .= '    OS: '.php_uname().PHP_EOL;
         $report .= '    PHP Version: '.PHP_VERSION.PHP_EOL;
         $report .= '    OpenAPI Spec Version: v1'.PHP_EOL;

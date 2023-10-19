@@ -466,7 +466,7 @@ class FinancesApi
     {
         $request = $this->listFinancialEventsByOrderIdRequest($order_id, $max_results_per_page, $next_token);
 
-        return $this->sendRequest($request, ListFinancialEventsResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
