@@ -204,7 +204,7 @@ class OrdersApi
         $returnType = '\Amazon\SpApi\Models\Orders\GetOrderAddressResponse';
         $request = $this->getOrderAddressRequest($order_id);
 
-        return $this->sendRequest($request, GetOrderAddressResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -308,7 +308,7 @@ class OrdersApi
     {
         $request = $this->getOrderBuyerInfoRequest($order_id);
 
-        return $this->sendRequest($request, GetOrderBuyerInfoResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
