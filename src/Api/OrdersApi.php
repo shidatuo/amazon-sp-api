@@ -414,7 +414,7 @@ class OrdersApi
     {
         $request = $this->getOrderItemsRequest($order_id, $next_token);
 
-        return $this->sendRequest($request, GetOrderItemsResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
