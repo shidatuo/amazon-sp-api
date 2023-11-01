@@ -42,7 +42,8 @@ class Reports
             $feed_processing_report_content = ASECryptoStream::decrypt(file_get_contents($url), $key, $initializationVector);
 
         // 是否设置了压缩方式
-        if(isset($payload['compressionAlgorithm']) && $payload['compressionAlgorithm'] == 'GZIP')
+        if((isset($payload['compressionAlgorithm']) && $payload['compressionAlgorithm'] == 'GZIP')
+            || (isset($payload['compression_algorithm']) && $payload['compression_algorithm'] == 'GZIP'))
             $feed_processing_report_content = gzdecode($feed_processing_report_content);
 
         // 去除换行符
