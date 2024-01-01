@@ -185,6 +185,7 @@ trait SellingPartnerApiRequest
      */
     protected function createHttpClientOption(): array
     {
+        // 不做ssl证书校验
         $options = ['verify'=>false];
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
