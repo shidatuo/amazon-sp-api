@@ -185,7 +185,7 @@ trait SellingPartnerApiRequest
      */
     protected function createHttpClientOption(): array
     {
-        $options = [];
+        $options = ['verify'=>false];
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {

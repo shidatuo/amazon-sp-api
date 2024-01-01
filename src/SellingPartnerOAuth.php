@@ -30,6 +30,7 @@ class SellingPartnerOAuth
             'curl' => [
                 32 => 6,
             ],
+            'verify' => false
         ], $params ? [RequestOptions::FORM_PARAMS => $params] : []);
 
         // 发起请求
@@ -70,6 +71,7 @@ class SellingPartnerOAuth
             'curl' => [
                 CURLOPT_SSLVERSION => 6,
             ],
+            'verify' => false
         ], $params ? [RequestOptions::FORM_PARAMS => $params] : []);
 
         // 请求接口
