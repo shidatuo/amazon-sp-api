@@ -368,7 +368,7 @@ class ReportsV20210630Api
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createReport');
         }
 
-        $resourcePath = '/reports/2020-09-04/reports';
+        $resourcePath = '/reports/2021-06-30/reports';
         $formParams   = [];
         $queryParams  = [];
         $headerParams = [];
