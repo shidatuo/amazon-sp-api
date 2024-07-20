@@ -159,7 +159,7 @@ class ReportsV20210630Api
             throw new \InvalidArgumentException('Missing the required parameter $report_id when calling cancelReport');
         }
 
-        $resourcePath = '/reports/2020-09-04/reports/{reportId}';
+        $resourcePath = '/reports/2021-06-30/reports/{reportId}';
         $formParams   = [];
         $queryParams  = [];
         $headerParams = [];
@@ -263,7 +263,7 @@ class ReportsV20210630Api
             throw new \InvalidArgumentException('Missing the required parameter $report_schedule_id when calling cancelReportSchedule');
         }
 
-        $resourcePath = '/reports/2020-09-04/schedules/{reportScheduleId}';
+        $resourcePath = '/reports/2021-06-30/schedules/{reportScheduleId}';
         $formParams   = [];
         $queryParams  = [];
         $headerParams = [];
