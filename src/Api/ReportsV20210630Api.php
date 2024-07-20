@@ -104,7 +104,7 @@ class ReportsV20210630Api
     {
         $request = $this->cancelReportRequest($report_id);
 
-        return $this->sendRequest($request, CancelReportResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -140,7 +140,7 @@ class ReportsV20210630Api
         $returnType = '\Amazon\SpApi\Models\Reports\CancelReportResponse';
         $request = $this->cancelReportRequest($report_id);
 
-        return $this->sendRequestAsync($request, CancelReportResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -209,7 +209,7 @@ class ReportsV20210630Api
     {
         $request = $this->cancelReportScheduleRequest($report_schedule_id);
 
-        return $this->sendRequest($request, CancelReportScheduleResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -313,7 +313,7 @@ class ReportsV20210630Api
     {
         $request = $this->createReportRequest($body);
 
-        return $this->sendRequest($request, CreateReportResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -349,7 +349,7 @@ class ReportsV20210630Api
         $returnType = '\Amazon\SpApi\Models\Reports\CreateReportResponse';
         $request = $this->createReportRequest($body);
 
-        return $this->sendRequestAsync($request, CreateReportResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -409,7 +409,7 @@ class ReportsV20210630Api
     {
         $request = $this->createReportScheduleRequest($body);
 
-        return $this->sendRequest($request, CreateReportScheduleResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -444,7 +444,7 @@ class ReportsV20210630Api
     {
         $request = $this->createReportScheduleRequest($body);
 
-        return $this->sendRequestAsync($request, CreateReportScheduleResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -463,7 +463,7 @@ class ReportsV20210630Api
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createReportSchedule');
         }
 
-        $resourcePath = '/reports/2020-09-04/schedules';
+        $resourcePath = '/reports/2021-06-30/schedules';
         $formParams   = [];
         $queryParams  = [];
         $headerParams = [];
@@ -504,7 +504,7 @@ class ReportsV20210630Api
     {
         $request = $this->getReportRequest($report_id);
 
-        return $this->sendRequest($request, GetReportResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -539,7 +539,7 @@ class ReportsV20210630Api
     {
         $request = $this->getReportRequest($report_id);
 
-        return $this->sendRequestAsync($request, GetReportResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -558,7 +558,7 @@ class ReportsV20210630Api
             throw new \InvalidArgumentException('Missing the required parameter $report_id when calling getReport');
         }
 
-        $resourcePath = '/reports/2020-09-04/reports/{reportId}';
+        $resourcePath = '/reports/2021-06-30/reports/{reportId}';
         $formParams   = [];
         $queryParams  = [];
         $headerParams = [];
@@ -608,7 +608,7 @@ class ReportsV20210630Api
     {
         $request = $this->getReportDocumentRequest($report_document_id);
 
-        return $this->sendRequest($request, GetReportDocumentResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -712,7 +712,7 @@ class ReportsV20210630Api
     {
         $request = $this->getReportScheduleRequest($report_schedule_id);
 
-        return $this->sendRequest($request, GetReportScheduleResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
@@ -747,7 +747,7 @@ class ReportsV20210630Api
     {
         $request = $this->getReportScheduleRequest($report_schedule_id);
 
-        return $this->sendRequestAsync($request, GetReportScheduleResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -816,7 +816,7 @@ class ReportsV20210630Api
     {
         $request = $this->getReportSchedulesRequest($report_types);
 
-        return $this->sendRequest($request, GetReportSchedulesResponse::class);
+        return $this->sendRequest($request, 'array');
 
         try {
             $options = $this->createHttpClientOption();
@@ -1038,7 +1038,7 @@ class ReportsV20210630Api
     {
         $request = $this->getReportsRequest($report_types, $processing_statuses, $marketplace_ids, $page_size, $created_since, $created_until, $next_token);
 
-        return $this->sendRequest($request, GetReportsResponse::class);
+        return $this->sendRequest($request, 'array');
     }
 
     /**
