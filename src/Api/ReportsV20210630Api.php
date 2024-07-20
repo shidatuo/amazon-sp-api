@@ -244,7 +244,7 @@ class ReportsV20210630Api
     {
         $request = $this->cancelReportScheduleRequest($report_schedule_id);
 
-        return $this->sendRequestAsync($request, CancelReportScheduleResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -643,7 +643,7 @@ class ReportsV20210630Api
     {
         $request = $this->getReportDocumentRequest($report_document_id);
 
-        return $this->sendRequestAsync($request, GetReportDocumentResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -958,7 +958,7 @@ class ReportsV20210630Api
     {
         $request = $this->getReportSchedulesRequest($report_types);
 
-        return $this->sendRequestAsync($request, GetReportSchedulesResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
@@ -1086,7 +1086,7 @@ class ReportsV20210630Api
         $returnType = '\Amazon\SpApi\Models\Reports\GetReportsResponse';
         $request = $this->getReportsRequest($report_types, $processing_statuses, $marketplace_ids, $page_size, $created_since, $created_until, $next_token);
 
-        return $this->sendRequestAsync($request, GetReportsResponse::class);
+        return $this->sendRequestAsync($request, 'array');
     }
 
     /**
