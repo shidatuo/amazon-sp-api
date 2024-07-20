@@ -39,7 +39,7 @@ use GuzzleHttp\Exception\RequestException;
  *
  * @author   Stefan Neuhaus / ClouSale
  */
-class ReportsApi
+class ReportsV20210630Api
 {
     use SellingPartnerApiRequest;
 
